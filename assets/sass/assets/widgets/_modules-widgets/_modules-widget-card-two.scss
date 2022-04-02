@@ -4,10 +4,12 @@
     ==================
 */
 
-.widget-card-two {
-  background: $white;
+.widget.widget-card-two {
+  background: #fff;
   padding: 20px 0px;
+}
 
+.widget-card-two {
   .media {
     padding-left: 15px;
     padding-right: 15px;
@@ -57,7 +59,7 @@
     .img-group img {
       width: 46px;
       height: 46px;
-      border-radius: 50%;
+      border-radius: 12px;
       border: 2px solid $m-color_3;
 
       &:not(:last-child) {
@@ -69,7 +71,7 @@
       display: block;
       margin-top: 18px;
       background: $primary;
-      color: $white;
+      color: #fff;
       padding: 10px 10px;
       transform: none;
       margin-right: 15px;
@@ -77,6 +79,8 @@
       font-size: 15px;
       font-weight: 600;
       letter-spacing: 1px;
+      border: none;
+      background-image: linear-gradient(315deg, #1e9afe 0%, #60dfcd 74%);
 
       &.btn {
         &:hover, &:focus {

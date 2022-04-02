@@ -4,26 +4,20 @@
 
 @import '../../base/base';    // Base Variables
 
-.main-container {
-    min-height: auto;
-}
-.layout-px-spacing {
-    min-height: auto!important;
-}
-
 .ps--active-y > .ps__rail-y {
   z-index: 20;
 }
+
 #content > .container {
   max-width: 100% !important;
 }
 
 .fc-view {
-  height: calc(100vh - 312px);
+  height: calc(100vh - 384px);
 }
 
 #calendar {
-  height: calc(100vh - 321px);
+  height: calc(100vh - 358px);
 }
 
 .popover {
@@ -32,7 +26,7 @@
   border-color: $l-primary;
   max-width: 338px;
   min-width: 270px;
-  background: $white;
+  background: #fff;
   box-shadow: none;
   border: 1px solid $m-color_3;
   box-shadow: 0px 3px 11px 0px rgba(31, 45, 61, 0.1);
@@ -49,7 +43,7 @@
   .popover-header {
     background-color: $m-color_9;
     border-color: $l-primary;
-    color: $white;
+    color: #fff;
     padding: 11px 18px;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
@@ -91,7 +85,7 @@
     content: '';
     position: absolute;
     padding: 0;
-    background: $black;
+    background: #000;
     border-radius: 2px;
     left: 0px;
     top: 5px;
@@ -155,32 +149,32 @@ button {
 
 .bg-primary {
   background-color: $l-primary !important;
-  border-color: $l-primary !important;
-  color: $white;
+  border-color: $m-color_2 !important;
+  color: #fff;
   -webkit-box-shadow: none !important;
   box-shadow: none !important;
 }
 
 .bg-success {
   background-color: $l-success !important;
-  border-color: $l-success !important;
-  color: $white;
+  border-color: $m-color_2 !important;
+  color: #fff;
   -webkit-box-shadow: none !important;
   box-shadow: none !important;
 }
 
 .bg-warning {
   background-color: $l-warning !important;
-  border-color: $l-warning !important;
-  color: $white;
+  border-color: $m-color_2 !important;
+  color: #fff;
   -webkit-box-shadow: none !important;
   box-shadow: none !important;
 }
 
 .bg-danger {
   background-color: $l-danger !important;
-  border-color: $l-danger !important;
-  color: $white;
+  border-color: $m-color_2 !important;
+  color: #fff;
   -webkit-box-shadow: none !important;
   box-shadow: none !important;
 }
@@ -195,7 +189,7 @@ a {
 .fc-scroller {
   height: 100% !important;
   position: relative;
-  height: calc(100vh - 384px) !important;
+  height: calc(100vh - 420px) !important;
 
   &.fc-time-grid-container {
     height: calc(100vh - 420px) !important;
@@ -203,7 +197,7 @@ a {
 }
 
 .fc-agendaWeek-view .fc-scroller.fc-time-grid-container, .fc-agendaDay-view .fc-scroller.fc-time-grid-container {
-  height: calc(100vh - 430px) !important;
+  height: calc(100vh - 466px) !important;
 }
 
 /*
@@ -290,7 +284,7 @@ input[readonly] {
 
   #add-e {
     background-color: $primary;
-    color: $white;
+    color: #fff;
     font-weight: 600;
     border: 1px solid $primary;
     padding: 10px 25px;
@@ -298,14 +292,14 @@ input[readonly] {
 
   #edit-event {
     background-color: $m-color_14;
-    color: $white;
+    color: #fff;
     font-weight: 600;
     border: 1px solid $m-color_3;
     padding: 10px 25px;
   }
 
   [data-dismiss="modal"] {
-    background-color: $white;
+    background-color: #fff;
     color: $primary;
     font-weight: 700;
     border: 1px solid #e8e8e8;
@@ -316,7 +310,7 @@ input[readonly] {
 td.fc-today.fc-state-highlight span {
   background: $primary;
   border-radius: 50%;
-  color: $white;
+  color: #fff;
   display: inline-block !important;
   font-size: 12px;
   font-weight: 700;
@@ -326,7 +320,7 @@ td.fc-today.fc-state-highlight span {
   .fc-content:before {
     content: '';
     height: 5px;
-    background: $black;
+    background: #000;
     width: 5px;
     position: absolute;
     left: -9px;
@@ -381,6 +375,20 @@ td.fc-today.fc-state-highlight span {
 .fadeIn {
   -webkit-animation-name: fadeIn;
   animation-name: fadeIn;
+}
+
+@media (max-width: 991px) {
+  #calendar {
+    height: calc(100vh - 300px);
+  }
+
+  .fc-scroller {
+    height: calc(100vh - 362px) !important;
+  }
+
+  .fc-agendaWeek-view .fc-scroller.fc-time-grid-container, .fc-agendaDay-view .fc-scroller.fc-time-grid-container {
+    height: calc(100vh - 409px) !important;
+  }
 }
 
 @media (max-width: 767px) {

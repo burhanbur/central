@@ -25,9 +25,11 @@ class User extends Authenticatable implements JWTSubject
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'username',
         'email',
         'password',
+        'salt',
+        'is_active',
     ];
 
     /**
@@ -37,16 +39,6 @@ class User extends Authenticatable implements JWTSubject
      */
     protected $hidden = [
         'password',
-        'remember_token',
-    ];
-
-    /**
-     * The attributes that should be cast.
-     *
-     * @var array<string, string>
-     */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
     ];
 
     /**
@@ -67,5 +59,20 @@ class User extends Authenticatable implements JWTSubject
     public function getJWTCustomClaims()
     {
         return [];
+    }
+
+    public function userApplication()
+    {
+        return $this->hasMany(UserApplication::class, 'user_id');
+    }
+
+    public function userRole()
+    {
+        return $this->hasMany(UserRole::class, 'user_id');
+    }
+
+    public function person()
+    {
+        return $this->hasOne(Person::class, 'user_id');
     }
 }
