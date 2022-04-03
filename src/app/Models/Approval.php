@@ -18,7 +18,7 @@ class Approval extends Model
     protected $primaryKey = 'id';
     protected $keyType = 'string';
     protected $fillable = [
-        'code',
+        'approval_code',
         'application_id',
         'approval',
         'level',

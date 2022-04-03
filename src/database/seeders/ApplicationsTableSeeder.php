@@ -20,14 +20,14 @@ class ApplicationsTableSeeder extends Seeder
     	$data = [
     		[
     			'id' => '01b6e36a-ad97-4c4c-9853-9fc3a35b30e8',
-	        	'application' => 'SIAKAD',
-	        	'description' => 'Sistem Informasi Akademik',
-	        	'base_url' => 'http://localhost/siakad',
-	        	'login_url' => 'http://localhost/siakad/auth',
-	        	'logo' => null,
-	        	'is_active' => true,
-                'created_at' => date('Y-m-d H:i:s'),
-                'updated_at' => date('Y-m-d H:i:s')
+        	'application' => 'HARIS',
+        	'description' => 'Human Resource Information System',
+        	'base_url' => 'http://localhost/haris',
+        	'login_url' => 'http://localhost/haris/auth',
+        	'logo' => null,
+        	'is_active' => true,
+          'created_at' => date('Y-m-d H:i:s'),
+          'updated_at' => date('Y-m-d H:i:s')
     		],
     		// [
     		// 	'id' => (string) Str::uuid(),

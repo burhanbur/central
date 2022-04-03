@@ -16,15 +16,20 @@ class Role extends Model
      */
     protected $table = 'roles';
     protected $primaryKey = 'id';
-    protected $keyType = 'string';
     protected $fillable = [
-        'role',
+        'name',
+        'guard_name',
     ];    
     
-    public $incrementing = false;
+    public $incrementing = true;
 
-    public function userRole()
+    public function modelRole()
     {
-        return $this->hasMany(UserRole::class, 'role_id');
+        return $this->hasMany(ModelRole::class, 'role_id');
+    }
+
+    public function rolePermission()
+    {
+        return $this->hasMany(RolePermission::class, 'role_id');
     }
 }

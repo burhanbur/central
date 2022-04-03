@@ -13,8 +13,12 @@
 
         <ul class="list-unstyled menu-categories" id="topAccordion">
 
-            <li class="menu single-menu active">
-                <a href="{{ route('home') }}" data-toggle="collapse" aria-expanded="true" class="dropdown-toggle autodroprown">
+            <li class="menu single-menu 
+                @if (Request::is('/') || Request::is('home'))
+                    active
+                @endif
+            ">
+                <a href="{{ route('home') }}" data-toggle="" aria-expanded="true" class="dropdown-toggle autodroprown">
                     <div class="">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
                         <!-- <i class="fas fa-home"></i> &nbsp; -->
@@ -23,6 +27,35 @@
                 </a>
             </li>
 
+            @role('user')
+                <li class="menu single-menu 
+                    @if (Request::is('applications*'))
+                        active
+                    @endif
+                ">
+                    <a href="{{ route('applications') }}" data-toggle="" aria-expanded="true" class="dropdown-toggle autodroprown">
+                        <div class="">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-zap"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                            <span>My Application</span>
+                        </div>
+                    </a>
+                </li>
+
+                <li class="menu single-menu 
+                    @if (Request::is('approvals*'))
+                        active
+                    @endif
+                ">
+                    <a href="{{ route('list.approval') }}" data-toggle="" aria-expanded="true" class="dropdown-toggle autodroprown">
+                        <div class="">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline></svg>
+                            <span>My Approval</span>
+                        </div>
+                    </a>
+                </li>
+            @endrole
+
+            @role('admin')
             <li class="menu single-menu">
                 <a href="#app" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                     <div class="">
@@ -33,15 +66,11 @@
                 </a>
                 <ul class="collapse submenu list-unstyled" id="app" data-parent="#topAccordion">
                     <li>
-                        <a href=""> Register Application </a>
-                    </li>
-                    <li>
-                        <a href=""> Manage Applications </a>
+                        <a href="{{ route('applications') }}"> Manage Application </a>
                     </li>
                 </ul>
             </li>
             
-            <!--  -->
             <li class="menu single-menu">
                 <a href="#user" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                     <div class="">
@@ -52,10 +81,7 @@
                 </a>
                 <ul class="collapse submenu list-unstyled" id="user" data-parent="#topAccordion">
                     <li>
-                        <a href=""> Register User </a>
-                    </li>
-                    <li>
-                        <a href=""> Manage Users  </a>
+                        <a href="{{ route('users') }}"> Manage User  </a>
                     </li>
                 </ul>
             </li>
@@ -70,14 +96,13 @@
                 </a>
                 <ul class="collapse submenu list-unstyled" id="privilege" data-parent="#topAccordion">
                     <li>
-                        <a href=""> Register Privilege </a>
+                        <a href="{{ route('roles') }}"> Manage Role </a>
                     </li>
                     <li>
-                        <a href=""> Manage Privileges </a>
+                        <a href="{{ route('permissions') }}"> Manage Permission </a>
                     </li>
                 </ul>
             </li>
-            <!--  -->
             
             <li class="menu single-menu">
                 <a href="#organization" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
@@ -89,37 +114,25 @@
                 </a>
                 <ul class="collapse submenu list-unstyled" id="organization" data-parent="#topAccordion">
                     <li>
-                        <a href=""> Manage Employee </a>
+                        <a href="{{ route('employees') }}"> Manage Employee </a>
                     </li>
                 </ul>
             </li>
             
             <li class="menu single-menu">
-                <a href="#organization" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                    <div class="">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-zap"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
-                        <span>Organization</span>
-                    </div>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                </a>
-                <ul class="collapse submenu list-unstyled" id="organization" data-parent="#topAccordion">
-                    <li>
-                        <a href=""> Manage Organization </a>
-                    </li>
-                </ul>
-            </li>
-            
-            <li class="menu single-menu">
-                <a href="#position" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                <a href="#organizational" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                     <div class="">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-box"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
-                        <span>Position</span>
+                        <span>Organizational</span>
                     </div>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg>
                 </a>
-                <ul class="collapse submenu list-unstyled" id="position" data-parent="#topAccordion">
+                <ul class="collapse submenu list-unstyled" id="organizational" data-parent="#topAccordion">
                     <li>
-                        <a href=""> Manage Position </a>
+                        <a href="{{ route('organizations') }}"> Manage Organization </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('positions') }}"> Manage Position </a>
                     </li>
                 </ul>
             </li>            
@@ -134,7 +147,7 @@
                 </a>
                 <ul class="collapse submenu list-unstyled" id="approval" data-parent="#topAccordion">
                     <li>
-                        <a href=""> Manage Approval </a>
+                        <a href="{{ route('approvals') }}"> Manage Approval </a>
                     </li>
                     <li>
                         <a href=""> Approval Workflow </a>
@@ -144,6 +157,7 @@
                     </li>
                 </ul>
             </li>
+            @endrole
         </ul>
     </nav>
 </div>

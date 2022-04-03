@@ -3,8 +3,9 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
-class UserRole extends MultiplePrimaryKey
+class Permission extends Model
 {
     use HasFactory;
 
@@ -13,15 +14,14 @@ class UserRole extends MultiplePrimaryKey
      *
      * @var array
      */
-    protected $table = 'user_roles';
-    protected $primaryKey = ['user_id', 'role_id'];
-    protected $keyType = 'string';
+    protected $table = 'permissions';
+    protected $primaryKey = 'id';
     protected $fillable = [
-        'user_id',
-        'role_id',
+        'name',
+        'guard_name',
     ];    
     
-    public $incrementing = false;
+    public $incrementing = true;
 
     public function user()
     {

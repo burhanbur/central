@@ -9,22 +9,6 @@ CREATE TABLE `users` (
   `updated_at` datetime DEFAULT CURRENT_TIMESTAMP()
 );
 
-CREATE TABLE `password_resets` (
-  `email` varchar(255),
-  `token` varchar(255),
-  `created_at` datetime
-);
-
-CREATE TABLE `failed_jobs` (
-  `id` int PRIMARY KEY AUTO_INCREMENT,
-  `uuid` varchar(36),
-  `connection` text,
-  `queue` text,
-  `payload` longtext,
-  `exception` longtext,
-  `failed_at` datetime
-);
-
 CREATE TABLE `persons` (
   `id` varchar(36) PRIMARY KEY,
   `user_id` varchar(36),
@@ -86,21 +70,6 @@ CREATE TABLE `address` (
   `city_id` int,
   `district_id` int,
   `postal_code` varchar(255),
-  `created_at` datetime DEFAULT CURRENT_TIMESTAMP(),
-  `updated_at` datetime DEFAULT CURRENT_TIMESTAMP()
-);
-
-CREATE TABLE `user_roles` (
-  `user_id` varchar(36),
-  `role_id` varchar(36),
-  `created_at` datetime DEFAULT CURRENT_TIMESTAMP(),
-  `updated_at` datetime DEFAULT CURRENT_TIMESTAMP(),
-  PRIMARY KEY (`user_id`, `role_id`)
-);
-
-CREATE TABLE `roles` (
-  `id` varchar(36) PRIMARY KEY,
-  `role` varchar(255),
   `created_at` datetime DEFAULT CURRENT_TIMESTAMP(),
   `updated_at` datetime DEFAULT CURRENT_TIMESTAMP()
 );
@@ -210,10 +179,6 @@ ALTER TABLE `address` ADD FOREIGN KEY (`province_id`) REFERENCES `provinces` (`i
 ALTER TABLE `address` ADD FOREIGN KEY (`city_id`) REFERENCES `cities` (`id`);
 
 ALTER TABLE `address` ADD FOREIGN KEY (`district_id`) REFERENCES `districts` (`id`);
-
-ALTER TABLE `user_roles` ADD FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
-
-ALTER TABLE `user_roles` ADD FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`);
 
 ALTER TABLE `employee_positions` ADD FOREIGN KEY (`employee_id`) REFERENCES `employees` (`person_id`);
 

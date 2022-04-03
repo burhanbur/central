@@ -15,10 +15,9 @@ class Employee extends Model
      * @var array
      */
     protected $table = 'employees';
-    protected $primaryKey = 'id';
+    protected $primaryKey = 'person_id';
     protected $keyType = 'string';
     protected $fillable = [
-        'person_id',
         'nip',
         'join_date',
         'is_active',
@@ -28,7 +27,7 @@ class Employee extends Model
 
     public function person()
     {
-        return $this->hasOne(Person::class, 'person_id');
+        return $this->hasOne(Person::class, 'id');
     }
 
     public function approvalWorkflow()

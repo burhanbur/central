@@ -15,9 +15,32 @@
     <!-- END GLOBAL MANDATORY STYLES -->
 
     <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM STYLES -->
-    <link href="{{ asset('assets/plugins/apex/apexcharts.css') }}" rel="stylesheet" type="text/css">
-    <link href="{{ asset('assets/assets/css/dashboard/dash_2.css') }}" rel="stylesheet" type="text/css" />
+    <!-- <link href="{{ asset('assets/plugins/apex/apexcharts.css') }}" rel="stylesheet" type="text/css"> -->
     <!-- END PAGE LEVEL PLUGINS/CUSTOM STYLES -->
+
+    <style>
+        .center {
+            text-align: center;
+        }
+
+        .logo-app {
+            width: 100%; 
+            height: auto;
+        }
+
+        #footer {
+          position: fixed;
+          padding: 0;
+          margin: 0;
+          bottom: 0;
+          right: 0;
+          left: 0;
+          z-index: 1030;
+          width: 100%;
+          height: 3.0rem;
+          background: #fff;
+        }
+    </style>
 
     @yield('css')
 </head>

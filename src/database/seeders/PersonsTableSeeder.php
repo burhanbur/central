@@ -22,7 +22,7 @@ class PersonsTableSeeder extends Seeder
     			'id' => '66ad7975-2b90-490f-9185-091fe27cc983',
     			'user_id' => '4af9199c-919e-4293-a215-d8bef567a0ae',
 	        	'sid' => '3276022310960005',
-	        	'name' => 'Administrator',
+	        	'name' => 'Bayu Wicaksono',
 	        	'phone_number' => '081387807580',
 	        	'birthday' => '1996-10-23',
 	        	'religion' => 'ISLAM',

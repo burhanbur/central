@@ -11,4 +11,29 @@ class ApplicationController extends Controller
     {
         return view('welcome');
     }
+
+    public function show()
+    {
+
+    }
+
+    public function store(Request $request)
+    {
+
+    }
+
+    public function update(Request $request, $id)
+    {
+
+    }
+
+    public function destroy($id)
+    {
+    	
+    }
+
+    public function myApplication()
+    {
+    	return view('welcome');
+    }
 }

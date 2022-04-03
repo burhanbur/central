@@ -3,15 +3,6 @@
 
     @include('layouts.head')
 
-    <style type="text/css">
-        #footer {
-          position: fixed;
-          bottom: 0;
-          width: 100%;
-          height: 3.0rem;
-        }
-    </style>
-
     <body class="alt-menu sidebar-noneoverflow">
         <div id="load_screen"> 
             <div class="loader"> 
@@ -42,8 +33,8 @@
                         @yield('content')
                     </div>
 
-                    <footer id="footer">
-                        <div class="footer-wrapper">
+                    <footer id="">
+                        <div class="footer-wrapper" style="font-weight: 1000;">
                             @include('layouts.footer')
                         </div>
                     </footer>

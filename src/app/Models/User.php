@@ -7,12 +7,13 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Spatie\Permission\Traits\HasRoles;
 
 use Tymon\JWTAuth\Contracts\JWTSubject;
 
 class User extends Authenticatable implements JWTSubject
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable, HasRoles;
 
     protected $primaryKey = 'id';
     protected $keyType = 'string';
@@ -66,10 +67,10 @@ class User extends Authenticatable implements JWTSubject
         return $this->hasMany(UserApplication::class, 'user_id');
     }
 
-    public function userRole()
-    {
-        return $this->hasMany(UserRole::class, 'user_id');
-    }
+    // public function userRole()
+    // {
+    //     return $this->hasMany(UserRole::class, 'user_id');
+    // }
 
     public function person()
     {
