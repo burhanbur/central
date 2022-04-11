@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Web;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+use App\Models\ApprovalWorkflow;
+use Auth;
+
 class ApprovalController extends Controller
 {
     public function index()
@@ -34,7 +37,9 @@ class ApprovalController extends Controller
 
     public function listApproval()
     {
-    	return view('welcome');
+        $approvals = ApprovalWorkflow::where('approver_id', Auth::user()->person->id)->get();
+
+    	return view('contents.approvals.user_approval', get_defined_vars());
     }
 
     public function approval(Request $request)

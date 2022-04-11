@@ -44,7 +44,7 @@
         )
         <li class="breadcrumb-item active" aria-current="page">
             <a href="javascript:void(0);">
-                @if (Request::is('applications*'))
+                @if (Request::is('applications*') && !Request::is('applications/user'))
                     Manage Application
                 @endif
 
@@ -72,8 +72,16 @@
                     Manage Position
                 @endif
 
-                @if (Request::is('approvals*'))
+                @if (Request::is('approvals*') && !Request::is('approvals/list'))
                     Manage Approval
+                @endif
+
+                @if (Request::is('approvals/list*'))
+                    My Approval
+                @endif
+
+                @if (Request::is('applications/user*'))
+                    My Application
                 @endif
 
                 @if (Request::is('workflows*'))

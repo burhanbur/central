@@ -38,13 +38,13 @@ class HomeController extends Controller
     	$positions = Position::orderBy('created_at', 'DESC')->limit(5)->get();
 
     	// user
-    	// $myApplication = Application::where('is_active', 1)->whereHas('userApplication', function($query) use ($id) {
-    	// 	$query->where(array('user_id' => $id, 'is_active' => 1));
-    	// })->orderBy('application', 'ASC')->limit(6)->get();
+    	$myApplication = Application::where('is_active', 1)->whereHas('userApplication', function($query) use ($id) {
+    		$query->where(array('user_id' => $id, 'is_active' => 1));
+    	})->orderBy('application', 'ASC')->limit(6)->get();
 
-    	// $myApproval = ApprovalWorkflow::whereHas('employee', function($query) use ($personId) {
-    	// 	$query->where('person_id', $personId);
-    	// })->orderBy('created_at', 'DESC')->limit(5)->get();
+    	$myApproval = ApprovalWorkflow::whereHas('employee', function($query) use ($personId) {
+    		$query->where('person_id', $personId);
+    	})->orderBy('created_at', 'DESC')->limit(5)->get();
 
         return view('contents.dashboard', get_defined_vars());
     }

@@ -29,9 +29,7 @@
                         @include('layouts.breadcrumb')
                     </div>
 
-                    <div class="row layout-top-spacing">
-                        @yield('content')
-                    </div>
+                    @yield('content')
 
                     <footer id="">
                         <div class="footer-wrapper" style="font-weight: 1000;">
